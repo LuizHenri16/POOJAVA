@@ -1,4 +1,7 @@
-public class Samsung implements funções{
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Produto implements functions {
 
     String marca;
     String categoria;
@@ -11,14 +14,27 @@ public class Samsung implements funções{
     float comprimento;
     float altura;
 
-        public void status() {
+    @Override
+    public void updateModelo() {
+
+    }
+
+    @Override
+    public void delete(String atributo) {
+
+        if (atributo == "modelo") {
+            setModelo("null");
+        }
+    }
+
+    public void status() {
             System.out.println("Marca: " + getMarca());
             System.out.println("Modelo: " + getModelo());
             System.out.println("Cor: " + getCor());
             System.out.println("Versão: " + getVersao());
         };
 
-        public void status2() {
+        public void statusCompleto() {
             if (getCategoria() == "Smartphone" || getCategoria() == "Televisor") {
                 System.out.println("Armazenamento: " + getArmazenamento() + "GB");
                 System.out.println("RAM: " + getRam() + "GB");
@@ -27,15 +43,10 @@ public class Samsung implements funções{
                 System.out.println("Esse produto não possui memoria RAM");
             };
         }
-    @Override
-    public void updateModelo(String ModeloUpdate) {
-            setModelo(ModeloUpdate);
-    }
 
+    public Produto(String categoria, String modelo, String versao, String cor,
+                   float largura, float comprimento, float altura) {
 
-
-
-    public Samsung(String categoria, String modelo, String versao, String cor, float largura, float comprimento, float altura) {
         setMarca("Samsung");
         setCategoria(categoria);
         setModelo(modelo);
@@ -44,6 +55,7 @@ public class Samsung implements funções{
         setLargura(largura);
         setComprimento(comprimento);
         setAltura(altura);
+
         }
 
     public String getMarca() {
